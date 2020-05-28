@@ -2,4 +2,4 @@ The algorithm iterates through array once, keeping track of 3 indexes. `low_i` i
 
 Time complexity is O(n).
 
-Space complexity is O(n). Algorithm swaps elements in place.
+Space complexity is O(1). Algorithm swaps elements in place.
