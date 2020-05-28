@@ -25,7 +25,7 @@ def rotated_array_search(input_list, number):
 
         # if seq from low_i to mid_i is sorted
         if in_list[low_i] <= in_list[mid_i]:    
-            if in_list[low_i] <= number < in_list[mid_i]:
+            if in_list[low_i] <= number <= in_list[mid_i]:
                 return search(in_list, number, low_i, mid_i-1)
             else:
                 return search(in_list, number, mid_i+1, high_i)
@@ -33,23 +33,16 @@ def rotated_array_search(input_list, number):
         # if seq from low_i to mid_i is not sorted, then seq from mid_i
         # to high_i should be sorted
         else:
-            if in_list[mid_i+1] <= number < in_list[high_i]:
+            if in_list[mid_i+1] <= number <= in_list[high_i]:
                 return search(in_list, number, mid_i+1, high_i)
             else:
                 return search(in_list, number, low_i, mid_i-1)
 
-        
-
-
-
-
-
-
 
     
     found_i = search(input_list, number, 0, len(input_list)-1)
-    print(found_i)
-    print("rec_count", rec_count)
+    # print(found_i)
+    # print("rec_count", rec_count)
     return found_i
 
 
@@ -67,9 +60,15 @@ def test_function(test_case):
     else:
         print("Fail")
 
+
+test_function([[], 4])
+test_function([[], 0])
+test_function([[0], 0])
+test_function([[0], 8])
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])
 test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[6, 7, 8, 1, 2, 3, 4], 4])
 
