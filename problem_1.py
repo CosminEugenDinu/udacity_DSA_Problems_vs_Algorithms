@@ -1,6 +1,5 @@
 #! /usr/bin/env python3.8
 
-import math
 
 def sqrt(number):
     """
@@ -13,11 +12,11 @@ def sqrt(number):
     """
     if number == 0 or number == 1:
         return number
-    half_num = number / 2
+    half_num = number // 2
 
     def find_root(number, half_num):
 
-        root = (half_num + number / half_num) / 2
+        root = (half_num + number // half_num) // 2
         square = root*root
         if round(square) == number:
             return root
@@ -31,7 +30,7 @@ def sqrt(number):
     
     root = find_root(number, half_num)
 
-    return math.floor(root)
+    return root
 
 
 
